@@ -47,7 +47,7 @@ data:
                     "path": "/grafana-dashboard-definitions/0"
                 },
                 {
-                "folder": "cirrus-dashboard",
+                "folder": "custom-dashboard",
                 "folderUid": "",
                 "name": "1",
                 "options": {
