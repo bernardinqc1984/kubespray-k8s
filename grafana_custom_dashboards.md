@@ -4,8 +4,8 @@
 cat grafana-credentials.yaml 
 apiVersion: v1
 data:
-  password: YWRtaW5fY2lycnVz
-  username: YWRtaW4=
+  password: YWRt............
+  username: YWRt............
 kind: Secret
 metadata:
   name: grafana-credentials
