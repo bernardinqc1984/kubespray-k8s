@@ -267,6 +267,7 @@ sudo ETCDCTL_API=3 etcdctl snapshot save /tmp/etcd-backup-$(date +%Y%m%d-%H%M%S)
 
 14. **Vérifier un snapshot**
 
+```bash
 sudo ETCDCTL_API=3 etcdctl snapshot status /tmp/etcd-backup-*.db -w table
 Deprecated: Use `etcdutl snapshot status` instead.
 
@@ -275,18 +276,22 @@ Deprecated: Use `etcdutl snapshot status` instead.
 +---------+----------+------------+------------+
 | 56f42c6 | 21421074 |       1931 |      58 MB |
 +---------+----------+------------+------------+
+```
 
-or use the commande below, the fire one is deprecated
+14. or use the commande below, the fire one is deprecated
 
-udo ETCDCTL_API=3 etcdutl snapshot status /tmp/etcd-backup-*.db -w table
+```bash
+sudo ETCDCTL_API=3 etcdutl snapshot status /tmp/etcd-backup-*.db -w table
 +---------+----------+------------+------------+
 |  HASH   | REVISION | TOTAL KEYS | TOTAL SIZE |
 +---------+----------+------------+------------+
 | 56f42c6 | 21421074 |       1931 |      58 MB |
 +---------+----------+------------+------------+
+```
 
-Rechercher des clés par pattern
+15. **Rechercher des clés par pattern**
 
+```bash
 • # Tous les ConfigMaps
 
 sudo ETCDCTL_API=3 etcdctl get /registry/configmaps --prefix --keys-only \
@@ -302,13 +307,15 @@ sudo ETCDCTL_API=3 etcdctl alarm list \
   --cacert=/etc/ssl/etcd/ssl/ca.pem \
   --cert=/etc/ssl/etcd/ssl/admin-k8s-dev-1-cp01.pem \
   --key=/etc/ssl/etcd/ssl/admin-k8s-dev-1-cp01-key.pem
+```
 
+16. **Surveillance en temps réel (watch)**
 
-Surveillance en temps réel (watch)
-
+```bash
 # Surveiller les changements sur les pods openbao
 sudo ETCDCTL_API=3 etcdctl watch /registry/pods/openbao --prefix \
   --endpoints=https://172.16.1.20:2379 \
   --cacert=/etc/ssl/etcd/ssl/ca.pem \
   --cert=/etc/ssl/etcd/ssl/admin-k8s-dev-1-cp01.pem \
   --key=/etc/ssl/etcd/ssl/admin-k8s-dev-1-cp01-key.pem
+```
